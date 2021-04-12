@@ -102,3 +102,20 @@ dist
 
 # TernJS port file
 .tern-port
+
+# QQ Local files
+/data
+
+# Config files
+/yumemi/config/
+
+# Database File
+*.db
+
+# Setu Img File
+/yumemi/data/images/setu/r17/*
+/yumemi/data/images/setu/r18/*
+!.gitkeep
+
+# Gacha Img
+gacha.jpg

@@ -1,0 +1,29 @@
+# acgmx
+acgmx:
+    url: https://api.acgmx.com/public/
+    key: # <your acgmx apikey>
+
+# lolicon
+lolicon:
+  url: https://api.lolicon.app/setu/
+  key: # <your lolicon apikey>
+
+# jjc
+pcrdfans:
+  url: https://www.pcrdfans.com/
+  key: # <your pcrdfans apikey>
+
+# saucenao
+saucenao:
+  url: https://saucenao.com/search.php?
+  key: # <your saucenao apikey>
+
+# hitokoto
+hitokoto:
+  url: https://v1.hitokoto.cn/
+  param: ?c=a&c=b&c=c
+
+# webhook
+webhook:
+  path: # <your github webhook path>
+  secret: # <your github webhook secret>

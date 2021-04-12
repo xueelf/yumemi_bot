@@ -1,0 +1,16 @@
+bilibili:
+  enable: false
+  bl: true
+  tw: false
+  jp: true
+
+gvg:
+  version: none
+
+saucenao:
+  enable: false
+
+setu:
+  enable: false
+  r18: false
+  flash: true

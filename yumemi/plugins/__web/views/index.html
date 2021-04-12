@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yumemi 登陆平台</title>
+
+  <link rel="stylesheet" href="public/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="public/js/live2d.min.js"></script>
+
+</head>
+
+<body class="text-center">
+  <form class="form-signin" action="/login" method="post" onsubmit="return login()">
+    <div id="stage">
+      <div id="inner">
+        <div id="cover">
+          <div id="text">
+            <span style="color: cyan;">Yumemi</span><span style="color: white;">Bot</span>
+          </div>
+          <div id="detail"></div>
+          <div id="handle"></div>
+        </div>
+        <canvas class="mb-4" id="live2d" width="800" height="800"></canvas>
+      </div>
+      <a id="info" href="javascript:info()"><i class="fa fa-lg fa-info"></i></a>
+      <a id="refresh" href="javascript:refresh()"><i class="fa fa-lg fa-refresh"></i></a>
+    </div>
+    <h1 class="h3 mb-3 font-weight-normal">Yumemi 登陆平台</h1>
+    <label for="account" class="sr-only">用户名</label>
+    <input type="text" name="account" class="form-control" minlength="4" maxlength="11"  placeholder="用户名" required="required" autofocus="autofocus" pattern="[0-9]{4,11}">
+    <label for="password" class="sr-only">密码</label>
+    <input type="password" name="password" class="form-control" minlength="4" maxlength="11"  placeholder="密码" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" id="remember"> 记住我
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    <p class="mt-5 mb-3 text-muted">Copyleft &copy; Dc_Yuki 2021</p>
+  </form>
+  <script src="public/js/index.js"></script>
+</body>
+
+</html>
