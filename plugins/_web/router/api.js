@@ -18,6 +18,7 @@ const battle_sql = new Map([
   ['update_battle', 'UPDATE battle SET syuume = ?, one = ?, two = ?, three = ?, four = ?, five = ?, crusade = ?, update_time = ? WHERE group_id = ? AND start_date BETWEEN ? AND ?'],
   ['reservation', 'UPDATE battle SET crusade = ?, update_time = ? WHERE group_id = ? AND start_date BETWEEN ? AND ?'],
   ['update_beat', 'UPDATE beat SET damage = ? WHERE user_id = ? AND number = ? AND fight_time BETWEEN ? AND ?'],
+  ['get_unit', 'SELECT * FROM unit_view ORDER BY random() LIMIT 1'],
 ]);
 
 api.use(bodyParser());
@@ -36,6 +37,7 @@ api.post('/battle/:action', async ctx => {
     case 'get_groups':
     case 'get_member':
     case 'get_now_battle':
+    case 'get_unit':
       action = 'get';
       break;
     case 'set_user':

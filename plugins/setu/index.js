@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { getConfig, getConfigSync, getDir, scheduleJob, httpsRequest } = require('../../utils/util');
 
-const setu_max = 20;
+const setu_max = 50;
 const lsp = new Map();
 const lsp_max = 5;
 const setu_path = `${__yumemi}/data/images/setu`;

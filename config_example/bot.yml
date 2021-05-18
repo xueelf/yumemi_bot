@@ -21,7 +21,7 @@ web:
 # ver 信息
 info:
   # 版本信息
-  version: yumemi_bot@0.6.0
+  version: yumemi_bot@0.6.1
   # 提交日期
   released: 2021/5/18
   # 使用手册

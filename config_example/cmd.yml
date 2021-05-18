@@ -37,6 +37,9 @@ gobang:
   rollback: ^悔棋$
   over: ^((结束|中止)对局|认输)$
 
+guess:
+  avatar: (^猜头像$|.*)
+
 hitokoto:
   send: ^(来|说)(点|句|段)骚话$
 

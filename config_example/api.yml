@@ -21,7 +21,7 @@ saucenao:
 # hitokoto
 hitokoto:
   url: https://v1.hitokoto.cn/
-  param: ?c=a&c=b&c=c
+  params: ?c=a&c=b&c=c
 
 # webhook
 webhook:

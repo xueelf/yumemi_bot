@@ -89,7 +89,7 @@ bot.on('system.online', () => {
           })
           .catch(err => {
             bot.logger.warn(`${plugin} 模块未加载`);
-            bot.logger.warn(`${err.message}`);
+            // bot.logger.warn(`${err.message}`);
             j++;
           })
       }
