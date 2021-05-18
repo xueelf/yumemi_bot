@@ -1,6 +1,6 @@
 {
   "name": "yumemi_bot",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "まるで、夢みたい…",
   "main": "app.js",
   "scripts": {
@@ -12,17 +12,16 @@
     "url": "https://github.com/dcyuki/yumemi_bot"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "dc_yuki",
+  "license": "GPL",
   "dependencies": {
     "bili-api": "^1.6.0",
-    "js-yaml": "^4.0.0",
+    "js-yaml": "^4.1.0",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
-    "koa-static": "^5.0.0",
     "node-schedule": "^2.0.0",
-    "oicq": "^1.14.2",
+    "oicq": "^1.16.1",
     "sqlite3": "^5.0.2"
   }
 }

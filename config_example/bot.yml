@@ -1,0 +1,44 @@
+# bot 账号
+qq:
+  # 维护组 QQ 账号
+  admin: 2225151531
+  # 主  人 QQ 账号
+  master: # <your master qq number>
+  # 机器人 QQ 账号
+  account: # <your bot qq number>
+  # 机器人 QQ 密码
+  password: # <your bot qq password or 32bit md5>
+
+# web 服务
+web:
+  # 端口号
+  port: 80
+  # 域  名
+  domain: # <you domain name or ip address>
+
+################ 以下配置一般无需修改 ################
+
+# ver 信息
+info:
+  # 版本信息
+  version: yumemi_bot@0.6.0
+  # 提交日期
+  released: 2021/5/18
+  # 使用手册
+  docs: https://docs.littlemaple.club/#/help/
+  # 更新日志
+  changelogs: https://docs.littlemaple.club/#/changelog/
+
+# bot 配置
+# https://github.com/takayama-lily/oicq/blob/master/client.d.ts#ConfBot
+config:
+  # 日志输出
+  log_level: debug
+  # 登录设备
+  platform: 5
+  # 被踢下线是否在3秒后重新登陆
+  kickoff: false
+  # 群聊是否无视自己的发言
+  ignore_self: true
+  # 数据存储文件夹
+  data_dir: data/oicq_data

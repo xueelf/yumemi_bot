@@ -104,18 +104,18 @@ dist
 .tern-port
 
 # QQ Local files
-/data
+/data/oicq_data
 
 # Config files
-/yumemi/config/
+/config/
 
 # Database File
 *.db
 
 # Setu Img File
-/yumemi/data/images/setu/r17/*
-/yumemi/data/images/setu/r18/*
+/data/images/setu/r17/*
+/data/images/setu/r18/*
 !.gitkeep
 
 # Gacha Img
-gacha.jpg
+# gacha.jpg

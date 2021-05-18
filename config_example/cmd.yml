@@ -1,0 +1,51 @@
+_master:
+  title: ^申请头衔[\s]?.+$
+
+_terminal:
+  update: ^>[\s]?update[\s][a-z]+[\s][a-z0-9]+[\s][a-z0-9]+$
+  quit: ^>[\s]?quit$
+  state: ^>[\s]?state$
+  sugar: ^(开启|启用|打开|关闭|禁用)[\s]?[a-z]+(18)?$
+
+_tips:
+  rank: ^(b|bl|国|t|tw|台|省|j|jp|日)服?(r|R)ank$
+  help: ^(帮助|文档|help)$
+  login: ^(登录|login)$
+  list: ^(列表|服务|list)$
+  settings: ^(设置|settings)$
+  ver: ^(版本|ver|version)$
+
+battle:
+  initGuild: ^设置(国|台|日)服公会$
+  insertBattle: ^开启\S\S座会战$
+  insertBeat: (^[1-5]?\s?报刀\s?[1-9]\d*$|^[1-5]?\s?尾刀$)
+  deleteBattle: ^中止会战$
+  updateBeat: ^[0-3](\.5)?[\s]?修改[\s]?[1-9]\d*$
+  reservation: ^预约[\s]?[1-5]?$
+  selectBattle: ^状态$
+  saveload: ^(挂树|sl)$
+  selectSaveLoad: ^查树$
+  selectFight: ^查刀$
+  updateBattle: ^((\u5468\u76EE|boss|\u8840\u91CF)\s?[1-9]\d*\s?){1,3}$
+  replace: ^\[CQ:at,qq=\d+,text=@.*\]\s?[1-5]?\s?\u4EE3\u62A5\s?\d*$
+  # score: ^分数线$
+  # rank: ^查询排名[\s][\S]+[\s]?[\S]*$
+
+gobang:
+  start: ^五子棋[\s]?[5-9]?$
+  move: ^落子[\s]?[a-zA-Z][1-9]+[0-9]?$
+  rollback: ^悔棋$
+  over: ^((结束|中止)对局|认输)$
+
+hitokoto:
+  send: ^(来|说)(点|句|段)骚话$
+
+jjc:
+  pcrdfans: ^(t|tw|台|b|bili|bl|国|j|jp|日)jjc.*
+
+saucenao:
+  search: ^(搜图|\[CQ:image,file=.+,url=.+\])$
+
+setu:
+  random: ^来[点张份][涩瑟色]图$
+  search: ^来[点张份][\S]*[涩瑟色]图$
