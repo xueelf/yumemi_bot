@@ -24,9 +24,9 @@ battle:
   updateBeat: ^[0-3](\.5)?[\s]?修改[\s]?[1-9]\d*$
   reservation: ^预约[\s]?[1-5]?$
   selectBattle: ^状态$
-  saveload: ^(挂树|sl)$
-  selectSaveLoad: ^查树$
-  selectFight: ^查刀$
+  #saveload: ^(挂树|sl)$
+  #selectSaveLoad: ^查树$
+  selectBeat: ^查刀$
   updateBattle: ^((\u5468\u76EE|boss|\u8840\u91CF)\s?[1-9]\d*\s?){1,3}$
   replace: ^\[CQ:at,qq=\d+,text=@.*\]\s?[1-5]?\s?\u4EE3\u62A5\s?\d*$
   # score: ^分数线$
@@ -52,4 +52,4 @@ saucenao:
 
 setu:
   random: ^来[点张份][涩瑟色]图$
-  search: ^来[点张份][\S]*[涩瑟色]图$
+  search: ^来[点张份][\S]+[涩瑟色]图$
