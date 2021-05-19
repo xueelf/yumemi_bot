@@ -55,7 +55,7 @@ const list = async ctx => {
   const { [group_id]: { plugins } } = await getConfig('groups');
   const plugin_list = new Set(['当前群服务列表：']);
 
-  for (const plugin in plugins) plugin_list.add(plugins[plugin].enable ? `|○| ${plugin} ` : ` |△| ${plugin} `);
+  for (const plugin in plugins) plugin_list.add(plugins[plugin].enable ? `|○| ${plugin} ` : `|△| ${plugin} `);
 
   plugin_list.add('如要查看更多设置可输入 settings');
   reply([...plugin_list].join('\n'));

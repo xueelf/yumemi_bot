@@ -8,6 +8,7 @@ _terminal:
   sugar: ^(开启|启用|打开|关闭|禁用)[\s]?[a-z]+(18)?$
 
 _tips:
+  chat: .*
   rank: ^(b|bl|国|t|tw|台|省|j|jp|日)服?(r|R)ank$
   help: ^(帮助|文档|help)$
   login: ^(登录|login)$
