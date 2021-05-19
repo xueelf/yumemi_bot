@@ -16,6 +16,12 @@ _tips:
   settings: ^(设置|settings)$
   ver: ^(版本|ver|version)$
 
+aircon:
+  open: ^(开|打开|启动)空调$
+  close: ^(关|关上|关闭)空调$
+  adjust: ^设置温度\s?-?[1-9]\d*$
+  show: ^(群|当前|查看)温度$
+
 battle:
   initGuild: ^设置(国|台|日)服公会$
   insertBattle: ^开启\S\S座会战$

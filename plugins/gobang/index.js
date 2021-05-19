@@ -67,7 +67,7 @@ const start = ctx => {
 
   setTimeout(() => {
     over(ctx, '因长时间未分出胜负');
-  }, 3600000);
+  }, 1800000);
 }
 
 const move = ctx => {
