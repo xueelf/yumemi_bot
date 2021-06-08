@@ -1,0 +1,19 @@
+get_user: SELECT count(*) AS length FROM user WHERE id = ?
+set_user: INSERT INTO user (id, nickname) VALUES (?, ?)
+get_groups: SELECT count(*) AS length FROM groups WHERE id = ?
+set_groups: INSERT INTO groups (id, name) VALUES (?, ?)
+get_member: SELECT count(*) AS length FROM member WHERE group_id = ? AND user_id = ?
+set_member: INSERT INTO member (group_id, user_id, card) VALUES (?, ?, ?)
+get_now_battle: SELECT battle.id, battle.title, battle.syuume, battle.one, battle.two, battle.three, battle.four, battle.five, battle.crusade, count(beat.id) AS length, battle.update_time FROM battle LEFT JOIN beat ON battle.id = beat.battle_id AND beat.fight_time BETWEEN ? AND ? WHERE battle.group_id = ? AND battle.start_date BETWEEN ? AND ?
+set_battle: INSERT INTO battle (group_id, title, one, two, three, four, five, crusade) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+delete_battle: DELETE FROM battle WHERE group_id = ? AND start_date BETWEEN ? AND ?
+get_now_beat: SELECT number, boss, damage, fight_time FROM beat WHERE group_id = ? AND user_id = ? AND fight_time BETWEEN ? AND ? ORDER BY fight_time DESC
+set_beat: INSERT INTO beat (battle_id, group_id, user_id, number, syuume, boss, damage, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+update_battle: UPDATE battle SET syuume = ?, one = ?, two = ?, three = ?, four = ?, five = ?, crusade = ?, update_time = ? WHERE group_id = ? AND start_date BETWEEN ? AND ?
+reservation: UPDATE battle SET crusade = ?, update_time = ? WHERE group_id = ? AND start_date BETWEEN ? AND ?
+update_beat: UPDATE beat SET damage = ? WHERE user_id = ? AND number = ? AND fight_time BETWEEN ? AND ?
+
+get_unit: SELECT * FROM unit_view ORDER BY random() LIMIT 1
+
+set_word: INSERT INTO word (group_id, question, answer) VALUES (?, ?, ?)
+get_word: SELECT * FROM word WHERE group_id = ?

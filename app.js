@@ -1,5 +1,6 @@
+const { access, readdirSync } = require('fs');
 const { createClient } = require('oicq');
-const { getConfig, getConfigSync, setConfig, getDir, exists, checkGroupConfig } = require('./utils/util');
+const { getConfig, getConfigSync, setConfig, checkGroupConfig } = require('./utils/util');
 
 class Bot {
   constructor(account, password, config) {
@@ -67,37 +68,20 @@ bot.logger.mark(`View Changelogs：${changelogs}`);
 bot.logger.mark(`----------`);
 
 const plugins = {};
+const cmd = getConfigSync('cmd');
 
 // 登录成功
 bot.on('system.online', () => {
-  // 获取所有插件，只在启动项目的时候执行一次，没必要写到 util.js 里
-  let i = 0;
-  let j = 0;
+  const plugins_dir = readdirSync('./plugins');
 
-  bot.logger.mark(`----------`);
-  bot.logger.mark('Login success ! 初始化模块...');
-
-  getDir('plugins')
-    .then(async data => {
-      for (const plugin of data) {
-        // 插件是否存在 index.js 文件
-        await exists(`./plugins/${plugin}/index.js`)
-          .then(() => {
-            plugins[plugin] = require(`./plugins/${plugin}/index`);
-            // bot.logger.mark(`plugin loaded: ${plugin}`);
-            i++;
-          })
-          .catch(err => {
-            bot.logger.warn(`${plugin} 模块未加载`);
-            // bot.logger.warn(`${err.message}`);
-            j++;
-          })
-      }
-
-      bot.logger.mark(`加载了${i}个插件，${j}个失败。`);
-      bot.logger.mark(`初始化完毕，开始监听群聊。`);
-      bot.logger.mark(`----------`);
-    })
+  for (const plugin of plugins_dir) {
+    // 插件是否存在 index.js 文件
+    access(`./plugins/${plugin}/index.js`, err => {
+      !err ?
+        plugins[plugin] = require(`./plugins/${plugin}/index`) :
+        bot.logger.warn(`${plugin} 模块未加载`);
+    });
+  }
 
   checkGroupConfig();
 });
@@ -108,15 +92,12 @@ bot.on('message.group', async data => {
   const { group_id, group_name, raw_message, sender: { user_id, level: lv, role }, reply } = data;
 
   const groups = await getConfig('groups');
-  const group = groups[group_id] || {};
+  const group = groups[group_id];
   const level = user_id !== admin ? (user_id !== master ? (role === 'member' ? (lv < 5 ? (lv < 3 ? 0 : 1) : 2) : (role === 'admin' ? 3 : 4)) : 5) : 6;
 
   // 群消息是否监听
   if (!group.enable) {
-    checkGroupConfig();
-
     if (level > 4 && /^(开启|打开|启用)群服务$/.test(raw_message)) {
-      // 如果是 bot 登录后加入的新群，且从没收到除 开启群服务 以外的消息，这里第一次会抛一个 undefined ，不影响程序运行，待优化
       groups[group_id].enable = true;
 
       setConfig('groups', groups);
@@ -135,8 +116,6 @@ bot.on('message.group', async data => {
   const ctx = new Context(message_id, group_id, group_name, raw_message, user_id, nickname, card, level, reply)
 
   // 正则匹配
-  const cmd = await getConfig('cmd');
-
   for (const plugin in cmd) {
     for (const serve in cmd[plugin]) {
       const reg = new RegExp(cmd[plugin][serve]);
@@ -145,7 +124,11 @@ bot.on('message.group', async data => {
 
       // 模块是否启用
       if (/^[a-z]/.test(plugin)) {
-        const { plugins: { [plugin]: { enable } } } = group;
+        const {
+          plugins: {
+            [plugin]: { enable }
+          }
+        } = group;
 
         if (!enable) continue;
       }
@@ -166,3 +149,12 @@ bot.on('notice.group', async data => {
   // 群事件处理全写在 greet
   plugins._greet(data);
 });
+
+//自动同意群邀请
+// bot.on("request.group.invite", (data) => {
+//   bot.setGroupAddRequest(data.flag)
+//     .then(() => {
+//       // 更新群配置文件
+//       checkGroupConfig();
+//     })
+// });

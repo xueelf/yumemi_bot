@@ -1,6 +1,6 @@
 {
   "name": "yumemi_bot",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "まるで、夢みたい…",
   "main": "app.js",
   "scripts": {

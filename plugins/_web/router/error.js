@@ -1,8 +1,8 @@
 const Router = require('koa-router');
-const errorPage = new Router();
+const error = new Router();
 
-errorPage.get('/', async ctx => {
+error.get('/', async ctx => {
   ctx.body = '你不该来这里';
 })
 
-module.exports = errorPage;
+module.exports = error;

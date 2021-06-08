@@ -3,4 +3,4 @@ const pcrdfans = () => {
 
 }
 
-module.exports = { search }
+module.exports = { pcrdfans }

@@ -6,12 +6,13 @@ const alphabet = 'ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴ�
 const numbers = ['　', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩', '⑪', '⑫', '⑬', '⑭', '⑮', '⑯', '⑰', '⑱', '⑲', '⑳'];
 
 class Battle {
-  constructor(user_id, board) {
+  constructor(user_id, board, timeout) {
     this.black = user_id;
     this.white = null;
     this._board = board;
     this.offensive = true;
     this.history = [];
+    this.timeout = timeout;
   }
 
   get board() {
@@ -61,13 +62,14 @@ const start = ctx => {
   board.unshift(numbers);
 
   const battle = new Battle(user_id, board);
-  all_battle.set(group_id, battle);
+  const timeout = setTimeout(() => {
+    surrender(ctx, '因长时间未分出胜负');
+  }, 1800000);
 
+  all_battle.set(group_id, battle, timeout);
   reply(battle.board.join('\n'));
 
-  setTimeout(() => {
-    over(ctx, '因长时间未分出胜负');
-  }, 1800000);
+
 }
 
 const move = ctx => {
@@ -135,6 +137,7 @@ const move = ctx => {
         if (i < 4) continue;
 
         // 移除当前群聊棋盘信息
+        clearTimeout(battle.timeout);
         all_battle.delete(group_id);
         reply(`check mate！恭喜 [CQ:at,qq=${user_id}] 获得本轮胜利~ ヾ(≧▽≦*)o`);
         return;
@@ -177,13 +180,19 @@ const rollback = ctx => {
   reply(board.join('\n'));
 }
 
-const over = (ctx, msg = `${ctx.card ? ctx.card : ctx.nickname} 认输`) => {
+const surrender = (ctx, msg = `${ctx.card ? ctx.card : ctx.nickname} 认输`) => {
   const { group_id, reply } = ctx;
 
   if (!all_battle.has(group_id)) return;
 
+  clearTimeout(all_battle.get(group_id).timeout);
   all_battle.delete(group_id);
   reply(`${msg}，已中止当前五子棋对局`);
 }
 
-module.exports = { start, move, rollback, over }
+const over = ctx => {
+  const { nickname, card } = ctx;
+
+  surrender(ctx, `${card ? card : nickname} 中止了当前对局`);
+}
+module.exports = { start, move, rollback, surrender, over }

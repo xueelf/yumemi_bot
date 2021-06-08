@@ -1,5 +1,5 @@
 const { httpRequest } = require('../../utils/util');
-const battle_url = `http://localhost/api/battle`;
+const battle_url = `http://localhost/api/guess`;
 const avatar_info = new Map();
 const timeout_info = new Map();
 const sharp = require('sharp');

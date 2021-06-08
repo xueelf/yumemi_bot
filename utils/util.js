@@ -229,7 +229,7 @@ const checkGroupConfig = async () => {
   let update = false;
 
   // 不处理静态模块
-  const plugins = await getDir('plugins').then(data => data.filter(plugin => /^[a-z]+$/.test(plugin)));
+  const plugins = await getDir('plugins').then(data => data.filter(plugin => /^(?!_).+/.test(plugin)));
   const params = await getConfig('params');
   const groups = await getConfig('groups') || {};
 

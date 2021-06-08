@@ -42,16 +42,22 @@ gobang:
   start: ^五子棋[\s]?[5-9]?$
   move: ^落子[\s]?[a-zA-Z][1-9]+[0-9]?$
   rollback: ^悔棋$
-  over: ^((结束|中止)对局|认输)$
+  surrender: ^(投降|认输)$
+  over: ^(结束|中止)对局$
 
 guess:
-  avatar: (^猜头像$|.*)
+  avatar: (^猜头像$|\S+)
 
 hitokoto:
   send: ^(来|说)(点|句|段)骚话$
 
 jjc:
   pcrdfans: ^(t|tw|台|b|bili|bl|国|j|jp|日)jjc.*
+
+q&a:
+  answer: \S+
+  question: ^有人(问|说)\S+你就?(回|答|说|告诉他|告诉她)\S+$
+  select: ^看看有人问$
 
 saucenao:
   search: ^(搜图|\[CQ:image,file=.+,url=.+\])$

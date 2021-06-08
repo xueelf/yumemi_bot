@@ -13,7 +13,7 @@ const get = mid => {
         const { dynamicsRaw, dynamics } = data;
         const { desc: { type, dynamic_id }, card } = dynamicsRaw[0];
 
-        let msg = mid === 353840826 ? '【公主连结国服动态更新】/n' : '【公主连结日服动态更新】/n';
+        let msg = mid === 353840826 ? '【公主连结国服动态更新】\n\n' : '【公主连结日服动态更新】\n\n';
         /**
          * type 1   转发动态  item > content 文字内容 origin > item 转发动态内容
          * type 2   图片动态  item > description 文字内容 pictures 图片地址
@@ -25,7 +25,7 @@ const get = mid => {
           case 2:
             const { item: { description, pictures } } = JSON.parse(card);
 
-            msg = description;
+            msg += description;
 
             for (const { img_src } of pictures) msg += `\n[CQ:image,file=${img_src}]`;
 
@@ -33,13 +33,13 @@ const get = mid => {
           case 4:
             const { item: { content } } = JSON.parse(card);
 
-            msg = content;
+            msg += content;
             break;
           case 64:
             const { summary, image_urls } = JSON.parse(card);
 
             // 添加省略号，专栏内容过长，summary 仅显示前半部分
-            msg = `${summary}...`;
+            msg += `${summary}...`;
 
             for (const img_src of image_urls) msg += `\n[CQ:image,file=${img_src}]`;
             break;
