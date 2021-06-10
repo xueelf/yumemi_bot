@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://docs.littlemaple.club/public/images/avatar/logo.png" width="200"/>
+    <img src="https://docs.littlemaple.club/public/images/avatar/yumemi.png" width="200"/>
     <h3>
         - YumemiBot -
     </h3>

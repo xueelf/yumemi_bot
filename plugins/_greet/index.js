@@ -43,7 +43,7 @@ module.exports = data => {
         const { qq: { admin }, info: { docs } } = data;
         bot.sendGroupMsg(group_id,
           user_id !== bot.uin ?
-            `欢迎新人 [CQ:at,qq=${user_id}] 的加入~\n新人麻烦爆照报三围，希望你不要不识抬举（\n[CQ:image,file=./yumemi/data/images/emoji/miyane.jpg]` :
+            `欢迎新人 [CQ:at,qq=${user_id}] 的加入~\n新人麻烦爆照报三围，希望你不要不识抬举（\n[CQ:image,file=./data/images/emoji/miyane.jpg]` :
             (
               user_id !== admin ?
                 `泥豪，这里是只人畜无害的人工智障~\n本群服务默认关闭，若要开启麻烦联系 yuki 或项目负责人\n使用手册请访问：${docs}` :
@@ -58,8 +58,8 @@ module.exports = data => {
     case 'decrease':
       // 判断是否人为操作
       operator_id !== user_id ?
-        bot.sendGroupMsg(group_id, `感谢 [CQ:at,qq=${operator_id}] 赠送给 ${member.nickname}（${member.user_id}） 的一张飞机票~\n[CQ:image,file=./yumemi/data/images/emoji/mizu.jpg]`) :
-        bot.sendGroupMsg(group_id, `成员 ${member.nickname}（${member.user_id}） 已退出群聊\n[CQ:image,file=./yumemi/data/images/emoji/chi.jpg]`)
+        bot.sendGroupMsg(group_id, `感谢 [CQ:at,qq=${operator_id}] 赠送给 ${member.nickname}（${member.user_id}） 的一张飞机票~\n[CQ:image,file=./data/images/emoji/mizu.jpg]`) :
+        bot.sendGroupMsg(group_id, `成员 ${member.nickname}（${member.user_id}） 已退出群聊\n[CQ:image,file=./data/images/emoji/chi.jpg]`)
         ;
       break;
 
