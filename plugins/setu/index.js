@@ -148,7 +148,8 @@ const search = async ctx => {
           break;
 
         case 404:
-          reply(`${msg} 请输入合法的 pixiv tag`);
+          reply(`${msg}，将随机发送本地涩图`);
+          random(ctx);
           break;
 
         case 429:
