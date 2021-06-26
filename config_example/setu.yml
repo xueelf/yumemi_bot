@@ -1,2 +1,2 @@
-lsp_max: 5
-setu_max: 10
+max_lsp: 5
+max_setu: 50

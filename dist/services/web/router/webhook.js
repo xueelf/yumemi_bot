@@ -26,11 +26,11 @@ Author: ${name}
 Committer: ${username}
 Updated: ${timestamp}
 Link: ${url}`;
-            bots.forEach(val => {
-                const { gl, sendGroupMsg } = val;
+            bots.forEach(bot => {
+                const { gl, sendGroupMsg } = bot;
                 gl.forEach((val) => {
                     const { group_id } = val;
-                    sendGroupMsg(group_id, pushInfo);
+                    sendGroupMsg.bind(bot)(group_id, pushInfo);
                 });
             });
             break;
