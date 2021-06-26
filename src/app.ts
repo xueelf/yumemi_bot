@@ -11,6 +11,7 @@ import { IInfo, IBot, IPlugins } from './types/bot';
 const plugin_list: string[] = [];
 
 (() => {
+  // Acsii Font Name: Mini: http://patorjk.com/software/taag/
   const wellcome: string = `--------------------------------------------------------------------------------------------
                                                                              _         
       \\    / _  | |  _  _  ._ _   _    _|_  _    \\_/    ._ _   _  ._ _  o   |_)  _ _|_ 

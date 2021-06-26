@@ -9,7 +9,7 @@ const setu_1 = require("../../plugins/setu");
 let isReload = false;
 const { api, logger } = yumemi;
 const { url, key } = api.lolicon;
-const { max_setu, path } = util_1.getProfileSync('setu');
+const { max_setu } = util_1.getProfileSync('setu');
 function reload() {
     if (!key)
         return logger.warn(`你没有添加 apikey ，setu 服务将无法正常使用！`);
@@ -22,7 +22,7 @@ function reload() {
     for (let i = 0; i < 2; i++) {
         if (eval(`r${17 + i}_length`) > max_setu)
             continue;
-        const params = `?apikey=${key}&r18=${i}&num=1&size1200=true`;
+        const params = `?apikey=${key}&r18=${i}&num=10&size1200=true`;
         network_1.httpsRequest.get(url, params)
             .then((res) => {
             const { data } = res;
@@ -34,16 +34,16 @@ function reload() {
                     // 文件名不能包含 \ / : * ? " < > |
                     // cq 码 url 不能包括 [ ]
                     // pid 与 title 之间使用 & 符分割，title 若出现非法字符则替换为 -
-                    const setu_url = `${path}/r${17 + i}/${pid}&${title.replace(/(\\|\/|:|\*|\?|"|<|>|\||\[|\])/g, '-')}`;
+                    const setu_url = `${path.setu}/r${17 + i}/${pid}&${title.replace(/(\\|\/|:|\*|\?|"|<|>|\||\[|\])/g, '-')}`;
                     fs_1.writeFile(setu_url, res, 'base64', (err) => {
-                        !err ? logger.mark(`setu download success , ${pid} ${title}`) : logger.error(err.message);
+                        !err ? logger.mark(`setu download success, ${pid} ${title}`) : logger.error(err.message);
                     });
                 })
                     .catch((err) => {
                     err && logger.error(err.message);
                 });
                 // 此处只是 http 请求发送完毕，并非全部下载完毕
-                if (i = 1 && j && data.length - 1) {
+                if (i === 1 && j === data.length - 1) {
                     isReload = false;
                     logger.mark(`色图补充完毕`);
                 }

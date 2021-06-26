@@ -1,14 +1,17 @@
 {
-  "name": "yumemi_ts",
-  "version": "0.0.1",
-  "description": "",
+  "name": "yumemi_bot",
+  "version": "0.6.0",
+  "description": "まるで、夢みたい…",
   "main": "dist/app.js",
   "scripts": {
     "start": "node ./dist/app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcyuki/yumemi_bot"
+  },
+  "author": "dc_yuki",
+  "license": "GPL",
   "devDependencies": {
     "@types/js-yaml": "^4.0.1",
     "@types/koa": "^2.13.3",
