@@ -15,7 +15,7 @@ pcrdfans:
 
 # saucenao
 saucenao:
-  url: https://saucenao.com/search.php?
+  url: https://saucenao.com/search.php
   key: # <your saucenao apikey>
 
 # hitokoto

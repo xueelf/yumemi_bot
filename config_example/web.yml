@@ -1,0 +1,4 @@
+# 端口号
+port: 80
+# 域  名
+domain: # <you domain name or ip address>

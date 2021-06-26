@@ -1,19 +1,24 @@
 {
-  "name": "yumemi_bot",
-  "version": "0.6.2",
-  "description": "まるで、夢みたい…",
-  "main": "app.js",
+  "name": "yumemi_ts",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dcyuki/yumemi_bot"
+    "start": "node ./dist/app.js"
   },
   "keywords": [],
-  "author": "dc_yuki",
-  "license": "GPL",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.1",
+    "@types/koa": "^2.13.3",
+    "@types/koa-bodyparser": "^4.3.1",
+    "@types/koa-router": "^7.4.2",
+    "@types/node": "^15.12.0",
+    "@types/node-schedule": "^1.3.1",
+    "@types/sharp": "^0.28.3",
+    "@types/sqlite3": "^3.1.7"
+  },
   "dependencies": {
     "bili-api": "^1.6.0",
     "js-yaml": "^4.1.0",
@@ -21,8 +26,8 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
     "node-schedule": "^2.0.0",
-    "oicq": "^1.16.1",
-    "sharp": "^0.28.2",
+    "oicq": "^1.17.2",
+    "sharp": "^0.28.3",
     "sqlite3": "^5.0.2"
   }
 }

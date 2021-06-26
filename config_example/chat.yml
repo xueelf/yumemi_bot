@@ -1,3 +1,5 @@
+显卡:
+  - "NVIDIA\n\tGeforce\nRTX3060　　 2499.00\nRTX3060TI　 2999.00　👦🏾\nRTX3070　　 3899.00　👕✌🏾️\nRTX3080　　 5499.00　👖\n\nAMD\n\tRadeon\n　　　　　RX6700XT　3699.00\n👦🏾　　　RX6800　　 4599.00\n👕🤙🏾　RX6800XT　5099.00\n👖　　　RX6900XT　7999.00​"
 ^(\?|？)+$:
   - ¿
 granbluefantasy\.jp:
@@ -10,10 +12,10 @@ granbluefantasy\.jp:
 (b|B)ug:
   - 没有 bug ！这叫产品特性！
 ^(猜语音|贵族签到|(来|抽)一井|申请出刀|加入公会)$:
-  - 老娘不是 hoshino ，没这功能
+  - 老娘不是 hoshino bot ，没这功能
 (挂树|sl)了:
   - 会长快救我（逃
-  - '[CQ:image,file=./data/images/emoji/yingyingying.jpg]'
+  - "[CQ:image,file=./nata/images/emoji/yingyingying.jpg]"
 (爪巴|爬)$:
   - 哈？自己动
 ^好家伙$:
@@ -28,14 +30,14 @@ granbluefantasy\.jp:
   - 死了
   - 草死了草死了
 (井|＃|#)了:
-  - '[CQ:image,file=./data/images/emoji/-45000.jpg]'
-  - '[CQ:image,file=./data/images/emoji/hoshi.jpg]'
+  - "[CQ:image,file=./data/images/emoji/-45000.jpg]"
+  - "[CQ:image,file=./data/images/emoji/hoshi.jpg]"
 西内:
-  - '[CQ:image,file=./data/images/emoji/shine.jpg]'
+  - "[CQ:image,file=./data/images/emoji/shine.jpg]"
 (不够(色|涩)|摩多摩多):
-  - '[CQ:image,file=./data/images/emoji/modomodo.jpg]'
+  - "[CQ:image,file=./data/images/emoji/modomodo.jpg]"
 不愧是(我|你):
-  - '[CQ:image,file=./data/images/emoji/sasuga.jpg]'
+  - "[CQ:image,file=./data/images/emoji/sasuga.jpg]"
 老婆$:
-  - '[CQ:image,file=./data/images/emoji/wife.jpg]'
-  - '[CQ:image,file=./data/images/emoji/wife_xcw.jpg]'
+  - "[CQ:image,file=./data/images/emoji/wife.jpg]"
+  - "[CQ:image,file=./data/images/emoji/wife_xcw.jpg]"

@@ -1,25 +1,17 @@
-_master:
-  title: ^申请头衔[\s]?.+$
-
 _terminal:
-  update: ^>[\s]?update[\s][a-z]+[\s][a-z0-9]+[\s][a-z0-9]+$
-  quit: ^>[\s]?quit$
-  state: ^>[\s]?state$
-  sugar: ^(开启|启用|打开|关闭|禁用)[\s]?[a-z]+(18)?$
-
-_tips:
-  chat: .*
-  rank: ^(b|bl|国|t|tw|台|省|j|jp|日)服?(r|R)ank$
-  help: ^(帮助|文档|help)$
-  login: ^(登录|login)$
-  list: ^(列表|服务|list)$
-  settings: ^(设置|settings)$
-  ver: ^(版本|ver|version)$
+  list: ^(群服务|list)$
+  state: ^(信息|state)$
+  setting: ^(设置|setting)$
+  quit: ^>quit$
+  control: ^>(enable|disable)[\s][a-z]+$
+  update: ^>update[\s][a-z]+[\s][a-z0-9]+[\s][a-z0-9]+$
+  sugar: ^(开启|启用|打开|关闭|禁用)([a-z]+|r18|群服务)$
+  lock: ^(锁定|解锁)[a-z]+$
 
 aircon:
   open: ^(开|打开|启动)空调$
   close: ^(关|关上|关闭)空调$
-  adjust: ^设置温度\s?-?[1-9]\d*$
+  adjust: ^设置温度\s?(-?[1-9]\d*|0)$
   show: ^(群|当前|查看)温度$
 
 battle:
@@ -33,10 +25,18 @@ battle:
   #saveload: ^(挂树|sl)$
   #selectSaveLoad: ^查树$
   selectBeat: ^查刀$
-  updateBattle: ^((\u5468\u76EE|boss|\u8840\u91CF)\s?[1-9]\d*\s?){1,3}$
+  deleteBeat: ^撤销出刀$
+  updateBossInfo: ^((\u5468\u76EE|boss|\u8840\u91CF)\s?([1-9]\d*|0)\s?){1,3}$
   replace: ^\[CQ:at,qq=\d+,text=@.*\]\s?[1-5]?\s?\u4EE3\u62A5\s?\d*$
-  # score: ^分数线$
-  # rank: ^查询排名[\s][\S]+[\s]?[\S]*$
+  score: ^分数线$
+  rank: ^查询排名[\s][\S]+[\s]?[\S]*$
+
+bilibili:
+  send: ^(国|日)服动态$
+
+chat:
+  rank: ^(b|bl|国|t|tw|台|省|j|jp|日)服?(r|R)ank$
+  help: ^(帮助|文档|help)$
 
 gobang:
   start: ^五子棋[\s]?[5-9]?$
@@ -54,7 +54,10 @@ hitokoto:
 jjc:
   pcrdfans: ^(t|tw|台|b|bili|bl|国|j|jp|日)jjc.*
 
-q&a:
+master:
+  title: ^申请头衔[\s]?.+$
+
+qa:
   answer: \S+
   question: ^有人(问|说)\S+你就?(回|答|说|告诉他|告诉她)\S+$
   select: ^看看有人问$

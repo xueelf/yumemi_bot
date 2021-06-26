@@ -2,17 +2,15 @@ battle:
   version: none
 
 bilibili:
-  enable: false
   pcr_bl: true
   pcr_jp: true
 
 buy:
   version: cn
 
-saucenao:
-  enable: true
+hitokoto:
+  autoSend: true
 
 setu:
-  enable: false
   r18: false
   flash: true

@@ -1,0 +1,9 @@
+db: 999
+# output_type
+#
+# 0 normal html
+# 1 xml api (not implemented)
+# 2 json api
+output_type: 2
+testmode: 1
+numres: 3

@@ -11,7 +11,8 @@ get_now_beat: SELECT number, boss, damage, fight_time FROM beat WHERE group_id =
 set_beat: INSERT INTO beat (battle_id, group_id, user_id, number, syuume, boss, damage, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 update_battle: UPDATE battle SET syuume = ?, one = ?, two = ?, three = ?, four = ?, five = ?, crusade = ?, update_time = ? WHERE group_id = ? AND start_date BETWEEN ? AND ?
 reservation: UPDATE battle SET crusade = ?, update_time = ? WHERE group_id = ? AND start_date BETWEEN ? AND ?
-update_beat: UPDATE beat SET damage = ? WHERE user_id = ? AND number = ? AND fight_time BETWEEN ? AND ?
+update_beat: UPDATE beat SET number = ?, damage = ? WHERE user_id = ? AND number = ? AND fight_time BETWEEN ? AND ?
+delete_beat: DELETE FROM beat WHERE group_id = ? AND user_id = ? AND number = ? AND fight_time BETWEEN ? AND ?
 
 get_unit: SELECT * FROM unit_view ORDER BY random() LIMIT 1
 

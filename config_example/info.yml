@@ -1,0 +1,10 @@
+# 维 护 组
+admin: [2225151531]
+# 版本信息
+version: "yumemi_bot@0.6.0"
+# 提交日期
+released: "2021/6/26"
+# 使用手册
+docs: "https://docs.littlemaple.club/#/help/"
+# 更新日志
+changelogs: "https://docs.littlemaple.club/#/changelog/"

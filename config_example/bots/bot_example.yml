@@ -1,0 +1,26 @@
+# bot 账号
+qq:
+  # 主  人 QQ 账号
+  master: []   # <your master qq number array>
+  # 机器人 QQ 账号
+  uin:         # <your bot qq number>
+  # 机器人 QQ 密码
+  password:    # <your bot qq password or 32bit md5>
+
+# bot 插件
+plugins: []    # <your bot plugin array> 若为空则默认加载所有插件
+
+################## 以下配置一般无需修改 ##################
+
+# bot 配置
+config:
+  # 日志输出
+  log_level: info
+  # 登录设备
+  platform: 5
+  # 被踢下线是否在3秒后重新登陆
+  kickoff: false
+  # 群聊是否无视自己的发言
+  ignore_self: true
+  # 数据存储文件夹
+  data_dir: data/oicq
