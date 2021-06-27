@@ -30,6 +30,7 @@ battle:
   replace: ^\[CQ:at,qq=\d+,text=@.*\]\s?[1-5]?\s?\u4EE3\u62A5\s?\d*$
   score: ^分数线$
   rank: ^查询排名[\s][\S]+[\s]?[\S]*$
+  rescind: ^取消预约[\s]?[1-5]?$
 
 bilibili:
   send: ^(国|日)服动态$

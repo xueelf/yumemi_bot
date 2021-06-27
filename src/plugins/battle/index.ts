@@ -754,6 +754,65 @@ async function reservation(bot: Client, data: GroupMessageEventData): Promise<vo
   reply(msg);
 }
 
+// 取消预约
+async function rescind(bot: Client, data: GroupMessageEventData): Promise<void> {
+  await checkBattle(data);
+
+  const { groups } = bot;
+  const { raw_message, group_id, reply } = data;
+  const { battle: { version } } = groups[group_id].settings;
+  const battle = await getBattle(data);
+
+  if (version === 'none') {
+    reply('检测到当前群聊未定义游戏服务器，在使用会战功能前请务必初始化参数');
+    return;
+  }
+  if (!battle.id) {
+    reply('当月未发起会战，请先初始化数据');
+    return;
+  }
+  if (raw_message.length === 4) {
+    reply('请指定需要取消预约的 boss');
+    return;
+  }
+
+  const { crusade } = battle;
+  const { user_id, sender: { nickname, card } } = data;
+
+  const crusade_json = JSON.parse(crusade);
+  const crusade_member = `${card ? card : nickname}@${user_id}`;
+  const boss: number = Number(raw_message.slice(4).trim());
+  const index = crusade_json[en_char[boss]].indexOf(`${crusade_member}`);
+  if (index === -1) {
+    reply(`[CQ:at,qq=${user_id}] 你没有预约 ${cn_char[boss]}王，无法取消预约`);
+    return;
+  } else {
+    crusade_json[en_char[boss]].splice(index, 1);
+  }
+
+  const { time, the_month, next_month } = getDate();
+
+  const params = querystring.stringify({
+    data: [JSON.stringify(crusade_json, null, 2), time, group_id, the_month, next_month] as string[]
+  });
+
+  httpRequest.post(`${battle_url}/reservation`, params)
+    .then(() => {
+      reply(`${card ? card : nickname} 已取消预约 ${cn_char[boss]}王`);
+    })
+    .catch(err => {
+      reply(err.message);
+      bot.logger.error(err);
+    })
+
+  // 不传入 boss 实参则发送预约信息
+  let msg = '';
+  for (let i = 1; i <= 5; i++) {
+    msg += `${cn_char[i]}王：\n　　${crusade_json[en_char[i]].length ? crusade_json[en_char[i]].map((item: string) => item.split('@')[0]).join(', ') : '暂无'}\n`;
+  }
+
+  reply(msg);
+}
 
 // 分数线
 function score(bot: Client, data: GroupMessageEventData) {
@@ -963,6 +1022,7 @@ async function battle(bot: Client, data: GroupMessageEventData): Promise<void> {
   checkCommand(raw_message, battle.deleteBeat) && deleteBeat(bot, data);
   checkCommand(raw_message, battle.score) && score(bot, data);
   checkCommand(raw_message, battle.rank) && rank(bot, data);
+  checkCommand(raw_message, battle.rescind) && rescind(bot, data);
 }
 
 function activate(bot: Client): void {

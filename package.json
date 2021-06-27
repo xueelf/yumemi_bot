@@ -29,7 +29,7 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
     "node-schedule": "^2.0.0",
-    "oicq": "^1.17.2",
+    "oicq": "^1.17.3",
     "sharp": "^0.28.3",
     "sqlite3": "^5.0.2"
   }
