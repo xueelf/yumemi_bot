@@ -45,7 +45,11 @@ function question(data: GroupMessageEventData) {
   const [question, answer] = <string[]>raw_message.match(/(?<=有人(问|说)).+(?=你就?(回|答|说|告诉他|告诉她))|(?<=你就?(回|答|说|告诉他|告诉她)).+/g);
   const regular = /(\^|\$)/.test(question) ? question : `^${question}$`;
   const params = querystring.stringify({
-    data: [group_id, regular, answer] as string[]
+    data: [
+      group_id,
+      !/CQ:image/.test(regular) ? regular : (regular.match(/(?<=file=).+(?=,)/g) as string[])[0].replace(/(\.|\\|\+|\*|\?|\[|\^|\]|\$|\(|\)|\{|\}|\/)/g, '\\$1'),
+      answer
+    ] as string[]
   });
 
   httpRequest.post(`${qa_url}/set_word`, params)
@@ -63,18 +67,23 @@ function select(data: GroupMessageEventData) {
 
   getWord(group_id)
     .then((data: any) => {
-      const msg = ['id    lock      question', '------------------------'];
+      const msg = [];
 
       for (const word of data) {
-        const { id, question, lock } = word;
-        msg.push(`${id}      ${!lock ? 'false' : 'true'}        ${question}`)
+        const { question } = word;
+
+        msg.push(question);
       };
 
-      reply(msg.join('\n'));
+      reply(msg.join(' | '));
     })
     .catch(err => {
       reply(err);
     })
+}
+
+function deleteWord() {
+  
 }
 
 function qa(bot: Client, data: GroupMessageEventData): void {

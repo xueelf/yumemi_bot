@@ -43,7 +43,11 @@ function question(data) {
     const [question, answer] = raw_message.match(/(?<=有人(问|说)).+(?=你就?(回|答|说|告诉他|告诉她))|(?<=你就?(回|答|说|告诉他|告诉她)).+/g);
     const regular = /(\^|\$)/.test(question) ? question : `^${question}$`;
     const params = querystring_1.default.stringify({
-        data: [group_id, regular, answer]
+        data: [
+            group_id,
+            !/CQ:image/.test(regular) ? regular : regular.match(/(?<=file=).+(?=,)/g)[0].replace(/(\.|\\|\+|\*|\?|\[|\^|\]|\$|\(|\)|\{|\}|\/)/g, '\\$1'),
+            answer
+        ]
     });
     network_1.httpRequest.post(`${qa_url}/set_word`, params)
         .then(() => {
@@ -58,13 +62,16 @@ function select(data) {
     const { group_id, reply } = data;
     getWord(group_id)
         .then((data) => {
-        const msg = ['id    lock      question', '------------------------'];
+        const msg = [];
         for (const word of data) {
-            const { id, question, lock } = word;
-            msg.push(`${id}      ${!lock ? 'false' : 'true'}        ${question}`);
+            const { question } = word;
+            console.log(question);
+            console.log(!/\.jpg$/.test(question));
+            msg.push(!/\.jpg$/.test(question) ? question : `[CQ:image,file=${question.replace(/\\/g, '')}]`);
+            console.log(msg);
         }
         ;
-        reply(msg.join('\n'));
+        reply(msg.join(' | '));
     })
         .catch(err => {
         reply(err);
