@@ -3,6 +3,7 @@ const { getProfileSync } = require('../../../dist/util');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 const sqlite = require('../../../dist/sqlite');
+const { getBots } = require('../../../dist/bot');
 
 const api = new Router();
 const sql = getProfileSync('sql');
@@ -121,6 +122,7 @@ api.post('/send/:target', async ctx => {
   }
 
   // 1 分钟同一 ip 调用 100 次直接 ban 掉
+  const bots = getBots();
   for (const map of bots) {
     const bot = map[1];
     const { fl, gl } = bot;

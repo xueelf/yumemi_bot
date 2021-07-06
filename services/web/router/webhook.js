@@ -1,5 +1,6 @@
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
+const { getBots } = require('../../../dist/bot');
 
 const webhook = new Router();
 
@@ -26,6 +27,7 @@ Committer: ${username}
 Updated: ${timestamp}
 Link: ${url}`;
 
+      const bots = getBots();
       bots.forEach(bot => {
         const { gl, sendGroupMsg } = bot;
 

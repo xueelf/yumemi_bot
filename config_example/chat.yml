@@ -41,7 +41,7 @@ granbluefantasy\.jp:
 不愧是(我|你):
   - "[CQ:image,file=./data/images/emoji/sasuga.jpg]"
 老婆\S?$:
-  - "[CQ:image,file=./data/images/emoji/wife.jpg]"
+  - "[CQ:image,file=./data/images/emoji/wife_koori.jpg]"
   - "[CQ:image,file=./data/images/emoji/wife_xcw.jpg]"
 妈\S?$:
   - "[CQ:image,file=./data/images/emoji/mabao.jpg]"
