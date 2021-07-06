@@ -1,4 +1,6 @@
 const { scheduleJob } = require('node-schedule');
+const { checkGroup } = require('../../dist/util');
+const { getPlugins } = require('../../dist/plugin');
 
 const word = [
   '喵？',
@@ -36,7 +38,7 @@ function poke(data, bot) {
   poke_info.get(group_id).add(msg);
 }
 
-function increase(data, bot) {
+async function increase(data, bot) {
   const { uin } = bot;
   const { user_id, group_id } = data;
 
@@ -50,6 +52,15 @@ function increase(data, bot) {
       ) :
       `泥豪，这里是只人畜无害的人工智障~\n群服务默认关闭，若要开启麻烦联系 yuki 或项目负责人\n使用手册请访问：${docs}`
   );
+
+  // 更新群配置文件
+  const plugins = getPlugins();
+  const plugin_list = [];
+
+  plugins.forEach((plugin, key) => {
+    plugin_list.push(key)
+  });
+  await checkGroup(bot, plugin_list);
 }
 
 function decrease(data, bot) {
