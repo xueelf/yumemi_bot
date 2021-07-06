@@ -1,14 +1,9 @@
 # bot 账号
 qq:
   # 主  人 QQ 账号
-  master: []   # <your master qq number array>
+  masters: [987654321]
   # 机器人 QQ 账号
-  uin:         # <your bot qq number>
-  # 机器人 QQ 密码
-  password:    # <your bot qq password or 32bit md5>
-
-# bot 插件
-plugins: []    # <your bot plugin array> 若为空则默认加载所有插件
+  uin: 123456789
 
 ################## 以下配置一般无需修改 ##################
 

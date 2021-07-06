@@ -2,3 +2,5 @@
 port: 80
 # 域  名
 domain: # <you domain name or ip address>
+# webhook
+webhook: # <your webhook url>

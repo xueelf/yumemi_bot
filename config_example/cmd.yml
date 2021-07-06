@@ -3,10 +3,13 @@ _terminal:
   state: ^(信息|state)$
   setting: ^(设置|setting)$
   quit: ^>quit$
+  bot: ^>bot(\s(add|off|on|del)\s\d+|\shelp)?$
+  restart: ^>restart$
+  shutdown: ^>shutdown$
   control: ^>(enable|disable)[\s][a-z]+$
   update: ^>update[\s][a-z]+[\s][a-z0-9]+[\s][a-z0-9]+$
-  sugar: ^(开启|启用|打开|关闭|禁用)([a-z]+|r18|群服务)$
-  lock: ^(锁定|解锁)[a-z]+$
+  sugar: ^(开启|启用|打开|关闭|禁用)\s?([a-z]+|r18|群服务|pcr.+)$
+  lock: ^(锁定|解锁)\s?[a-z]+$
 
 aircon:
   open: ^(开|打开|启动)空调$
@@ -35,11 +38,11 @@ battle:
 bilibili:
   send: ^(国|日)服动态$
 
-chat:
+dialog:
   rank: ^(b|bl|国|t|tw|台|省|j|jp|日)服?(r|R)ank$
   help: ^(帮助|文档|help)$
 
-gobang:
+chess:
   start: ^五子棋[\s]?[5-9]?$
   move: ^落子[\s]?[a-zA-Z][1-9]+[0-9]?$
   rollback: ^悔棋$
@@ -47,24 +50,23 @@ gobang:
   over: ^(结束|中止)对局$
 
 guess:
-  avatar: (^猜头像$|\S+)
+  avatar: ^猜头像$
 
 hitokoto:
   send: ^(来|说)(点|句|段)骚话$
 
 jjc:
-  pcrdfans: ^(t|tw|台|b|bili|bl|国|j|jp|日)jjc.*
+  pcrdfans: ^jjc$
 
 master:
   title: ^申请头衔[\s]?.+$
 
 qa:
-  answer: \S+
   question: ^有人(问|说)\S+你就?(回|答|说|告诉他|告诉她)\S+$
   select: ^看看有人问$
 
 saucenao:
-  search: ^(搜图|\[CQ:image,file=.+,url=.+\])$
+  search: ^搜图$
 
 setu:
   random: ^来[点张份][涩瑟色]图$
