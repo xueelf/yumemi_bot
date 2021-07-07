@@ -3,7 +3,7 @@ _terminal:
   state: ^(信息|state)$
   setting: ^(设置|setting)$
   quit: ^>quit$
-  bot: ^>bot(\s(add|off|on|del)\s\d+|\shelp)?$
+  bot: ^>bot(\s(add|off|on|del)\s\d+)?$
   restart: ^>restart$
   shutdown: ^>shutdown$
   control: ^>(enable|disable)[\s][a-z]+$

@@ -50,7 +50,7 @@ function insertGroups(data) {
       data: [group_id]
     });
 
-    // 查询公会是否存在
+    // 查询群是否存在
     httpRequest.post(`${battle_url}/get_groups`, params)
       .then(res => {
         // return 不可省略，否则代码会继续执行
@@ -112,11 +112,11 @@ function insertMember(data) {
   })
 }
 
-async function checkBattle(data) {
+async function checkDatabase(data) {
   // 待优化 这里应该单独写一个事务处理校验
   await insertUser(data);
   await insertGroups(data);
   await insertMember(data);
 }
 
-module.exports = { checkBattle }
+module.exports = { checkDatabase }

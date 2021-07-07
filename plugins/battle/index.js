@@ -1,4 +1,4 @@
-const { checkBattle } = require('./create');
+const { checkDatabase } = require('./create');
 const { rank, score } = require('./select');
 const querystring = require('querystring');
 const { checkCommand, getProfileSync, getLevel, httpRequest } = require('../../dist/util');
@@ -69,7 +69,7 @@ function getBattle(data) {
 
 // 初始化公会信息
 async function initGuild(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const update = require('../_terminal/update');
   const { groups } = bot;
@@ -116,7 +116,7 @@ async function initGuild(data, bot) {
 
 // 开启会战
 async function insertBattle(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -175,7 +175,7 @@ async function insertBattle(data, bot) {
 
 // 中止会战
 async function deleteBattle(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -207,7 +207,7 @@ async function deleteBattle(data, bot) {
 
 // 当前状态
 async function selectBattle(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -264,7 +264,7 @@ async function selectBattle(data, bot) {
 
 // 查刀
 async function selectBeat(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -299,7 +299,7 @@ async function selectBeat(data, bot) {
 
 // 代报
 async function replace(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -340,7 +340,7 @@ async function replace(data, bot) {
 
 // 报刀
 async function insertBeat(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, raw_message, reply } = data;
@@ -464,7 +464,7 @@ async function insertBeat(data, bot) {
 
 // 撤销出刀
 async function deleteBeat(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -510,7 +510,7 @@ async function deleteBeat(data, bot) {
 
 // 修改出刀
 // async function updateBeat(bot: Client, data: GroupMessageEventData) {
-//   await checkBattle(data);
+//   await checkDatabase(data);
 
 //   const { groups } = bot;
 //   const { group_id, reply } = data;
@@ -609,7 +609,7 @@ async function deleteBeat(data, bot) {
 
 // 修改 boss 信息
 async function updateBossInfo(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, raw_message, reply } = data;
@@ -693,7 +693,7 @@ function updateBattle(data, bot, syuume, all_blood, crusade) {
 
 // 预约
 async function reservation(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { group_id, reply } = data;
@@ -752,7 +752,7 @@ async function reservation(data, bot) {
 
 // 取消预约
 async function rescind(data, bot) {
-  await checkBattle(data);
+  await checkDatabase(data);
 
   const { groups } = bot;
   const { raw_message, group_id, reply } = data;

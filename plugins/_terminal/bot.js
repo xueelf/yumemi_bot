@@ -60,19 +60,6 @@ async function del(data, uin) {
   }
 }
 
-function help(data) {
-  data.reply(`机器人相关指令：
---------------------
->bot  ## 查看所有机器人状态
->bot add <uin>  ## 登录新机器人
->bot off <uin>  ## 机器人离线
->bot on <uin>  ## 重新上线
->bot del <uin>  ## 删除机器人
->bot help  ## 查看帮助
-  
-※ <uin> 代表 QQ 账号`);
-}
-
 function state(data) {
   const msg = [];
   const bots = getBots();
@@ -86,7 +73,7 @@ function state(data) {
   data.reply(msg.join('\n'));
 }
 
-module.exports = (data, bot) => {
+module.exports = async (data, bot) => {
   const { raw_message } = data;
   const [, action, uin] = raw_message.split(' ');
   const level = await getLevel(data, bot);
@@ -97,7 +84,7 @@ module.exports = (data, bot) => {
     bot.setGeoupBan(group_id, user_id, 60 * 5);
     return;
   }
-  
+
   switch (action) {
     case 'add':
       add(data, bot, uin);

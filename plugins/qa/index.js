@@ -1,4 +1,5 @@
 const { stringify } = require('querystring');
+const { checkDatabase } = require('../battle/create');
 const { checkCommand, httpRequest } = require('../../dist/util');
 
 const qa_url = `http://localhost/api/word`;
@@ -39,7 +40,9 @@ function answer(data) {
     })
 }
 
-function question(data) {
+async function question(data) {
+  await checkDatabase(data);
+
   const { group_id, raw_message, reply } = data;
   const [question, answer] = raw_message.match(/(?<=有人(问|说)).+(?=你就?(回|答|说|告诉他|告诉她))|(?<=你就?(回|答|说|告诉他|告诉她)).+/g);
   const params = stringify({
@@ -86,9 +89,10 @@ function deleteWord() {
 }
 
 function listener(data) {
+  answer(data);
+
   const action = checkCommand('qa', data, this);
 
-  answer(data);
   action && eval(`${action}(data, this)`);
 }
 
