@@ -14,9 +14,7 @@ module.exports = async (data, bot) => {
 
   httpsRequest.get(url, params)
     .then((res) => {
-      const { error, data } = res;
-
-      if (data.length > 0) {
+      if (res.data.length > 0) {
         const { urls: { regular }, pid, title } = res.data[0];
 
         reply(`[CQ:at,qq=${user_id}]\npid: ${pid}\ntitle: ${title}\n----------------\n图片下载中，请耐心等待喵`);
@@ -33,7 +31,7 @@ module.exports = async (data, bot) => {
 
         lsp.set(user_id, lsp.get(user_id) + 1);
       } else {
-        !error ? random(data, bot) : reply(error)
+        !res.error ? random(data, bot) : reply(res.error)
       }
     })
     .catch(err => {
