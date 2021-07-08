@@ -5,8 +5,7 @@ acgmx:
 
 # lolicon
 lolicon:
-  url: https://api.lolicon.app/setu/
-  key: # <your lolicon apikey>
+  url: https://api.lolicon.app/setu/v2
 
 # jjc
 pcrdfans:

@@ -3,7 +3,7 @@ const { promises } = require('fs');
 const { checkCommand } = require('../../dist/util');
 
 // 获取涩图相关参数
-const { url, key } = global.yumemi.api.lolicon;
+const { url } = global.yumemi.api.lolicon;
 const max_lsp = 5;
 
 // 每天 5 点重置 lsp
@@ -28,11 +28,6 @@ async function getSetuDir() {
 // 关小黑屋
 function smallBlackRoom(data, bot) {
   const { group_id, user_id, reply } = data;
-
-  if (!key) {
-    reply(`你没有添加 apikey ，setu 服务将无法使用！`);
-    return true;
-  }
 
   // 判断 lsp 要了几张图，超过 max_lsp 张关小黑屋
   !lsp.has(user_id) && lsp.set(user_id, 0);
@@ -61,7 +56,7 @@ function deactivate(bot) {
 }
 
 module.exports = {
-  lsp, url, key,
+  lsp, url,
   activate, deactivate, smallBlackRoom, getSetuDir
 }
 

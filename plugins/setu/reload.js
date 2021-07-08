@@ -1,5 +1,5 @@
 const { writeFile } = require('fs');
-const { getSetuDir, url, key } = require('./index');
+const { getSetuDir, url } = require('./index');
 const { httpsRequest } = require('../../dist/util');
 
 let isReload = false;
@@ -7,7 +7,6 @@ const max_setu = 50;
 const { logger } = global.yumemi;
 
 module.exports = async () => {
-  if (!key) return logger.warn(`你没有添加 apikey ，setu 服务将无法正常使用！`);
   if (isReload) return logger.mark(`色图正在补充中...`);
 
   isReload = true;
@@ -19,7 +18,7 @@ module.exports = async () => {
   for (let i = 0; i < 2; i++) {
     if (eval(`r${17 + i}_length`) > max_setu) continue;
 
-    const params = `?apikey=${key}&r18=${i}&num=10&size1200=true`;
+    const params = `?r18=${i}&num=10&size=regular`;
 
     httpsRequest.get(url, params)
       .then(res => {
@@ -28,9 +27,9 @@ module.exports = async () => {
         logger.mark(`开始补充 r${17 + i} 涩图`);
 
         for (let j = 0; j < data.length; j++) {
-          const { url, pid, title } = data[j];
+          const { urls: { regular }, pid, title } = data[j];
 
-          httpsRequest.get(url)
+          httpsRequest.get(regular)
             .then(res => {
               /**
                * 文件名不能包含 \ / : * ? " < > |
@@ -61,4 +60,3 @@ module.exports = async () => {
 
   logger.info(`r17 :${r17_length} ，r18 ${r18_length} ， ${r17_length < max_setu ? 'r17 ' : ''}${r18_length < max_setu ? 'r18' : ''} 数量不足 ${max_setu}，开始补充库存...`)
 }
-
