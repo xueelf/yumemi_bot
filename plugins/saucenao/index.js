@@ -14,7 +14,7 @@ const testmode = 1;
 const numres = 3;
 
 // 最低精准度
-// const minSimilarity = 40;
+const minSimilarity = 50;
 const group_info = new Map();
 
 function search(data, bot) {
@@ -50,7 +50,7 @@ function search(data, bot) {
                   const { header: { similarity, thumbnail, index_name }, data } = results;
 
                   return `平台：${index_name.match(/(?<=: ).*(?=\ -)/g)}
-封面：[CQ:image,file=${thumbnail}]
+封面：[CQ:image,file=${similarity > minSimilarity ? thumbnail : './data/images/emoji/saucenao.jpg'}]
 相似：${similarity}%
 ${data.ext_urls ? `地址：${data.ext_urls.join('\n')}` : `日文：${data.jp_name}\n英语：${data.eng_name}`}\n`;
                 });

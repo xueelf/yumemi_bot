@@ -31,7 +31,8 @@ module.exports = async (data, bot) => {
 
         lsp.set(user_id, lsp.get(user_id) + 1);
       } else {
-        !res.error ? random(data, bot) : reply(res.error)
+        reply(`不存在 ${keyword} 标签，将随机发送本地色图`);
+        random(data, bot);
       }
     })
     .catch(err => {
