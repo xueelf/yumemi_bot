@@ -5,6 +5,6 @@ version: "yumemi_bot@0.6.1"
 # 提交日期
 released: "2021/7/6"
 # 使用手册
-docs: "https://docs.littlemaple.club/#/help/"
+docs: "https://docs.yumemi.moe/#/help/"
 # 更新日志
-changelogs: "https://docs.littlemaple.club/#/changelog/"
+changelogs: "https://docs.yumemi.moe/#/changelog/"
