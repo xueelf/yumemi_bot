@@ -47,13 +47,14 @@ module.exports = async () => {
             })
 
           // 此处只是 http 请求发送完毕，并非全部下载完毕
-          if (i === 1 && j === data.length - 1) {
+          if (j === data.length - 1) {
             isReload = false;
             logger.mark(`色图补充完毕`);
           }
         }
       })
       .catch(err => {
+        isReload = false;
         err && logger.error(err.message);
       });
   }

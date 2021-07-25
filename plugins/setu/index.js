@@ -62,6 +62,3 @@ module.exports = {
 
 const random = require('./random');
 const search = require('./search');
-const reload = require('./reload');
-
-reload();

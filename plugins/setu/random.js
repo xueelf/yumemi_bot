@@ -12,7 +12,7 @@ module.exports = async (data, bot) => {
   const { [!r18 ? 'r17' : 'r18']: images } = await getSetuDir();
 
   if (images.length < 2) {
-    reply(`[CQ:at,qq=${user_id}] 他喵的图都被你榨干了，一滴都没有了，请等待自动补充`);
+    reply(`[CQ:at,qq=${user_id}] 色图库存不足，请等待自动补充`);
     return;
   }
   const setu_file = images.pop();

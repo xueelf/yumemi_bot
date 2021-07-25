@@ -49,7 +49,9 @@ function updateDynamic() {
                 const { item: { pictures } } = JSON.parse(origin);
 
                 msg = content;
-                for (const { img_src } of pictures) msg += `\n[CQ:image,file=${img_src}]`;
+                if (pictures) {
+                  for (const { img_src } of pictures) msg += `\n[CQ:image,file=${img_src}]`;
+                }
               })()
 
               break;
