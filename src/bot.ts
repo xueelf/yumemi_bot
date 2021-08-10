@@ -12,9 +12,10 @@ const bots: Map<number, Client> = new Map();
 // 获取机器人目录
 function getBotDir(): Map<string, IBot> {
   const bot_bir: Map<string, IBot> = new Map();
+  const files: string[] = readdirSync('./config/bots').filter(file_name => /\.yml$/.test(file_name))
 
-  for (let file_name of readdirSync('./config/bots')) {
-    const bot_id: string = file_name.split('.')[0];
+  for (let file_name of files) {
+    const bot_id: string = file_name.slice(0, file_name.length - 4);
 
     bot_bir.set(bot_id, getProfileSync(bot_id, './config/bots') as IBot);
   }

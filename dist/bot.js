@@ -11,8 +11,9 @@ const bots = new Map();
 // 获取机器人目录
 function getBotDir() {
     const bot_bir = new Map();
-    for (let file_name of fs_1.readdirSync('./config/bots')) {
-        const bot_id = file_name.split('.')[0];
+    const files = fs_1.readdirSync('./config/bots').filter(file_name => /\.yml$/.test(file_name));
+    for (let file_name of files) {
+        const bot_id = file_name.slice(0, file_name.length - 4);
         bot_bir.set(bot_id, util_1.getProfileSync(bot_id, './config/bots'));
     }
     return bot_bir;
