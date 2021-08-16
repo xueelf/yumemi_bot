@@ -23,6 +23,4 @@
 
 > 本项目是一个基于 [oicq](https://github.com/takayama-lily/oicq) 框架，使用 [TypeScript](https://www.typescriptlang.org/) 语言开发的 [QQ](https://im.qq.com/) 机器人
 
-## yumemi waring
-本项目长期由我一人维护，项目结构几乎每个月都在重写，到现在还没固定下来  
-目前处于 **能 跑 就 行** 的状态，不建议现在研究源码，我自己看了都会血压高升
+> 当前分支已进入维护状态，不再添加新功能，目前正在写脚手架，感兴趣可以查看 [dev](https://github.com/dcyuki/yumemi_bot/tree/develop) 分支
