@@ -21,6 +21,6 @@
 [![oicq](https://img.shields.io/badge/oicq-%3E%3D1.17.3-FCAA00?style=flat-square&labelColor=FAFAFA&logo=JavaScript&logoColor=FCAA00)](https://github.com/takayama-lily/oicq)
 [![license](https://img.shields.io/badge/license-GPL--3.0-0093DD?style=flat-square&labelColor=FAFAFA&logo=GNUPrivacyGuard)](https://spdx.org/licenses/GPL-3.0-or-later)
 
-> 本项目是一个基于 [oicq](https://github.com/takayama-lily/oicq) 框架，使用 [TypeScript](https://www.typescriptlang.org/) 语言开发的 [QQ](https://im.qq.com/) 机器人
+> 本项目是一个基于 [oicq](https://github.com/takayama-lily/oicq) 协议库，使用 [TypeScript](https://www.typescriptlang.org/) 语言开发的 [QQ](https://im.qq.com/) 机器人
 
-> 当前分支已进入维护状态，不再添加新功能，目前正在写脚手架，感兴趣可以查看 [dev](https://github.com/dcyuki/yumemi_bot/tree/develop) 分支
+> 当前项目已进入维护期，不再添加新功能，目前正在写 cli，感兴趣可以查看 [kokkoro](https://github.com/dcyuki/kokkoro) 框架
