@@ -1,8 +1,9 @@
 const { stringify } = require('querystring');
 const { checkDatabase } = require('../battle/create');
-const { checkCommand, httpRequest } = require('../../dist/util');
+const { checkCommand, httpRequest, getProfileSync } = require('../../dist/util');
 
-const qa_url = `http://localhost/api/word`;
+const { port } = getProfileSync('web');
+const qa_url = `http://localhost:${port}/api/word`;
 
 function getWord(group_id) {
   return new Promise((resolve, reject) => {

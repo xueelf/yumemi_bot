@@ -6,7 +6,7 @@ let send_job = null;
 const dids = new Map();
 const mids = new Map([
   ['pcr_bl', 353840826],
-  ['pcr_jp', 484884957],
+  ['pcr_jp', 1731293061],
 ]);
 
 // 记录当前 dynamic id
@@ -42,7 +42,7 @@ function send(data) {
       break;
     case '日':
       mid = mids.get('pcr_jp');
-      msg = 'bilibili 近期动态：公主连结日服情报官_\n\n';
+      msg = 'bilibili 近期动态：PCR公主连结日服情报站\n\n';
       break;
   }
 

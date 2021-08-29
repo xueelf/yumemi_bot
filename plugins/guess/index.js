@@ -1,7 +1,8 @@
-const { checkCommand, httpRequest } = require('../../dist/util');
+const { checkCommand, httpRequest, getProfileSync } = require('../../dist/util');
 const sharp = require('sharp');
 
-const guess_url = `http://localhost/api/guess`;
+const { port } = getProfileSync('web');
+const guess_url = `http://localhost:${port}/api/guess`;
 const avatar_info = new Map();
 const time = 20;  // 猜头像时限
 

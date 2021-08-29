@@ -4,7 +4,8 @@ const querystring = require('querystring');
 const { checkCommand, getProfileSync, getLevel, httpRequest } = require('../../dist/util');
 
 const boss = getProfileSync('boss');
-const battle_url = `http://localhost/api/battle`;
+const { port } = getProfileSync('web');
+const battle_url = `http://localhost:${port}/api/battle`;
 const cn_char = ['零', '一', '二', '三', '四', '五'];
 const en_char = ['zero', 'one', 'two', 'three', 'four', 'five'];
 

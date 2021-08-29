@@ -4,7 +4,7 @@ const { getProfile, setProfile } = require('../../dist/util');
 
 const mids = new Map([
   ['pcr_bl', 353840826],
-  ['pcr_jp', 484884957],
+  ['pcr_jp', 1731293061],
 ]);
 const logger = global.yumemi.logger;
 
@@ -46,6 +46,12 @@ function updateDynamic() {
             case 4:
               (() => {
                 const { item: { content }, origin = '{"item":{"pictures":[]}}' } = JSON.parse(card);
+
+                // 防止转发视频动态
+                if (!JSON.parse(origin).item) {
+                  return
+                }
+
                 const { item: { pictures } } = JSON.parse(origin);
 
                 msg = content;
