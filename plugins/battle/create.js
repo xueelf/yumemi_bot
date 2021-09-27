@@ -1,6 +1,8 @@
 const querystring = require('querystring');
-const { battle_url } = require('./index')
-const { httpRequest } = require('../../dist/util');
+const { httpRequest, getProfileSync } = require('../../dist/util');
+
+const { port } = getProfileSync('web');
+const battle_url = `http://localhost:${port}/api/battle`;
 
 // 创建账号信息
 function insertUser(data) {

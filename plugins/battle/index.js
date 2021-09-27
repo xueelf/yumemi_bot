@@ -826,5 +826,5 @@ function deactivate(bot) {
 }
 
 module.exports = {
-  activate, deactivate, battle_url
+  activate, deactivate
 }
