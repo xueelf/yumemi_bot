@@ -1,5 +1,5 @@
 const querystring = require('querystring');
-const battle_url = `http://localhost/api/battle`;
+const { battle_url } = require('./index')
 const { httpRequest } = require('../../dist/util');
 
 // 创建账号信息
