@@ -23,4 +23,4 @@
 
 > 本项目是一个基于 [oicq](https://github.com/takayama-lily/oicq) 协议库，使用 [TypeScript](https://www.typescriptlang.org/) 语言开发的 [QQ](https://im.qq.com/) 机器人
 
-> 当前项目已进入维护期，不再添加新功能，目前正在写 cli，感兴趣可以查看 [kokkoro](https://github.com/dcyuki/kokkoro) 框架
+> 当前项目已进入维护期，不再添加新功能，目前正在写 cli，感兴趣可以查看 [kokkoro](https://github.com/kokkorojs/kokkoro) 框架
