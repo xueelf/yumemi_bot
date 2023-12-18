@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://yumemi.yuki.sh/public/images/avatar/yumemi.png" width="200"/>
+    <img src="https://blog.yuki.sh/yumemi_doc/public/images/avatar/yumemi.png" width="200"/>
     <h3>
         - YumemiBot -
     </h3>
